@@ -1,0 +1,69 @@
+
+
+#one {
+  border: 2px solid $black;
+}
+
+#two {
+  border: 2px solid $black;
+}
+
+#three {
+  border: 2px solid $black;
+}
+
+#four {
+  border: 2px solid $black;
+}
+
+#five {
+  border: 2px solid $black;
+}
+
+#six {
+  border: 2px solid $black;
+}
+
+#seven {
+  border: 2px solid $black;
+}
+
+#eight {
+  border: 2px solid $black;
+}
+
+#nine {
+  border: 2px solid $black;
+}
+
+footer {
+  border: 2px solid $black;
+  margin: 50px auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+.header {
+  max-width: 100%;
+  text-align: center;
+}
+
+.gameboard {
+  height: 302px;
+  margin: 100px auto;
+  overflow: auto;
+  width: 302px;
+}
+
+.main-content {
+  border: 2px solid $black;
+  height: 500px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.tile {
+  float: left;
+  height: 100px;
+  width: 100px;
+}
