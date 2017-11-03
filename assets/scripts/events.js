@@ -1,43 +1,32 @@
 'use strict'
-// Variables needed to play game
-let player = 'X'
+const getFormFields = require(`../../lib/get-form-fields`)
 
-const onClick = function (event) {
-  console.log(event)
-  // const content = event.target.innerHTML
-  const id = event.target.id
-  $('#' + id).html('fuckkkkkk')
-  // if (player === 'X') {
-  //     player = 'O'
-  //   } else if (player === 'O') {
-  //     player = 'X'
-  //     }
+const api = require('./api')
+const ui = require('./ui')
+
+const onSignUp = function (event) {
+  const data = getFormFields(this)
+  console.log(data)
+  event.preventDefault()
+  api.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
 }
 
-// const content = event.target.innerHTML
-// const id = event.target.id
-// $('.tile').on('click', function () {
-//   $(this.id).text(player)
-//   if (player === 'X') {
-//     player = 'O'
-//   } else if (player === 'O') {
-//     player = 'X'
-//     }
+const onSignIn = function (event) {
+  const data = getFormFields(this)
+  console.log(data)
+  event.preventDefault()
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
 
-onClick()
-
-const addHandler = function () {
-  $('#one').click(onClick)
-  $('#two').click(onClick)
-  $('#three').click(onClick)
-  $('#four').click(onClick)
-  $('#five').click(onClick)
-  $('#six').click(onClick)
-  $('#seven').click(onClick)
-  $('#eight').click(onClick)
-  $('#nine').click(onClick)
+const addHandlers = function () {
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
 }
 
 module.exports = {
-  addHandler
+  addHandlers
 }

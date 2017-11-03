@@ -36,11 +36,18 @@
   border: 2px solid $black;
 }
 
+// .aside {
+//   border: 2px solid $black;
+//   float: left;
+//   height: 500px;
+// }
+
 footer {
   border: 2px solid $black;
   margin: 50px auto;
   max-width: 100%;
   text-align: center;
+  clear: both;
 }
 
 .header {
@@ -51,15 +58,20 @@ footer {
 .gameboard {
   height: 302px;
   margin: 100px auto;
-  overflow: auto;
   width: 302px;
 }
 
 .main-content {
   border: 2px solid $black;
-  height: 500px;
+  height: 502px;
   margin: 0 auto;
   max-width: 100%;
+  position: relative;
+}
+
+.win-lose {
+  border: 2px solid $black;
+  position: fixed;
 }
 
 .tile {

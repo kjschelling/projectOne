@@ -17,7 +17,7 @@
 </div>
       <div class="main-content">
 
-      <div class="gameboard">
+        <div class="gameboard">
           <div class="tile" id="one"></div>
           <div class="tile" id="two"></div>
           <div class="tile" id="three"></div>
@@ -27,13 +27,30 @@
           <div class="tile" id="seven"></div>
           <div class="tile" id="eight"></div>
           <div class="tile" id="nine"></div>
-      </div>
-
+        </div>
     </div>
-      <div class= "wins/losses">
-      </div>
+
+
 <footer>
-  <p>Footer</p>
+  <form id="sign-up">
+          <fieldset>
+            <legend>Sign up!</legend>
+            <p id="message"></p>
+            <input type="text" id="sign-up-email" name="credentials[email]" placeholder="Email">
+            <input type="text" id="sign-up-password" name="credentials[password]" placeholder="Password">
+            <input type="text" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+        </form>
+  <form id="sign-in">
+          <fieldset>
+              <legend>Sign in!</legend>
+              <p id="messageSignIn"></p>
+              <input type="text" id="sign-in-email" name="credentials[email]" placeholder="Email">
+              <input type="text" id="sign-in-password" name="credentials[password]" placeholder="Password">
+              <input type="submit" name="submit" value="Sign in!">
+          </fieldset>
+        </form>
 </footer>
     </body>
 </html>
