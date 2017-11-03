@@ -33,11 +33,22 @@ const changePasswordFailure = function (error) {
   $('#messageChangePassword').text('Error password change')
 }
 
+const signOutSuccess = function () {
+  $('#messageSignOut').text('Signed out!')
+  store.user = null
+}
+const signOutFailure = function (error) {
+  $('#messageSignOut').text('Still here')
+  console.log(error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure
 }
