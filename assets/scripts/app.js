@@ -35,6 +35,10 @@ let currentPlayer = 'O'
 // prompt ('Tie')
 // }
 // }
+const startGame = function () {
+
+}
+
 
 const playerSwitch = function () {
   if (currentPlayer === 'X') {
