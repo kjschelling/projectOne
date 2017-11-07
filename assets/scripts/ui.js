@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store')
+const app = require('./app')
 
 const signUpSuccess = function (data) {
   console.log(data)
@@ -44,11 +45,22 @@ const signOutFailure = function (error) {
 
 const newGameSuccess = function (data) {
   $('#player-message').text('New game created, X starts')
-  console.log(data)
+  store.game = data.game
+  console.log('store.game is ', store.game)
 }
 
 const newGameFailure = function (error) {
   $('#player-message').text('New game error')
+  console.log(error)
+}
+
+const updateGameSuccess = function (data) {
+  $('#player-message').text(app.currentPlayer + ' turn')
+  console.log(data)
+}
+
+const updateGameFailure = function (error) {
+  $('#player-message').text('turn error')
   console.log(error)
 }
 
@@ -62,5 +74,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   newGameSuccess,
-  newGameFailure
+  newGameFailure,
+  updateGameSuccess,
+  updateGameFailure
 }

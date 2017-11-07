@@ -1,44 +1,38 @@
 'use strict'
 
-let currentPlayer = 'O'
+const store = require('./store')
 
-// const checkForWIn = function () {
-// // horizonatonal wins
-// if (currentPlayer === tile[0] && currentPlayer === tile[1] && currentPlayer === tile[2]) {
-// prompt (currentPlayer + ' wins')
-// }
-// else if (currentPlayer === tile[3] && currentPlayer === tile[4] && currentPlayer === tile[5]) {
-// prompt (currentPlayer + ' wins')
-// }
-// else if (currentPlayer === tile[6] && currentPlayer === tile[7] && currentPlayer === tile[8]) {
-// prompt (currentPlayer + ' wins')
-// }
-//
-// // vertical wins
-// if (currentPlayer === tile[0] && currentPlayer === tile[3] && currentPlayer === tile[6]) {
-// prompt (currentPlayer + ' wins')
-// }
-// else if (currentPlayer === tile[1] && currentPlayer === tile[4] && currentPlayer === tile[7]) {
-// prompt (currentPlayer + ' wins')
-// }
-// else if (currentPlayer === tile[2] && currentPlayer === tile[5] && currentPlayer === tile[8]) {
-// prompt (currentPlayer + ' wins')
-// }
-//
-// // diagonal wins
-// if (currentPlayer === tile[2] && currentPlayer === tile[4] && currentPlayer === tile[6]) {
-// prompt (currentPlayer + ' wins')
-// }
-// else if (currentPlayer === tile[0] && currentPlayer === tile[4] && currentPlayer === tile[8]) {
-// prompt (currentPlayer + ' wins')
-// // } else {
-// prompt ('Tie')
-// }
-// }
-const startGame = function () {
+let currentPlayer = 'X'
+const tiles = ['', '', '', '', '', '', '', '', '']
 
+const checkForWin = function () {
+// horizonatonal wins
+  if (currentPlayer === tiles[0] && currentPlayer === tiles[1] && currentPlayer === tiles[2]) {
+    $('#player-message').html(currentPlayer + ' wins')
+  } else if (currentPlayer === tiles[3] && currentPlayer === tiles[4] && currentPlayer === tiles[5]) {
+    $('#player-message').html(currentPlayer + ' wins')
+  } else if (currentPlayer === tiles[6] && currentPlayer === tiles[7] && currentPlayer === tiles[8]) {
+    $('#player-message').html(currentPlayer + ' wins')
+  }
+
+  // vertical wins
+  if (currentPlayer === tiles[0] && currentPlayer === tiles[3] && currentPlayer === tiles[6]) {
+    $('#player-message').html(currentPlayer + ' wins')
+  } else if (currentPlayer === tiles[1] && currentPlayer === tiles[4] && currentPlayer === tiles[7]) {
+    $('#player-message').html(currentPlayer + ' wins')
+  } else if (currentPlayer === tiles[2] && currentPlayer === tiles[5] && currentPlayer === tiles[8]) {
+    $('#player-message').html(currentPlayer + ' wins')
+  }
+
+  // diagonal wins
+  if (currentPlayer === tiles[2] && currentPlayer === tiles[4] && currentPlayer === tiles[6]) {
+    $('#player-message').html(currentPlayer + ' wins')
+  } else if (currentPlayer === tiles[0] && currentPlayer === tiles[4] && currentPlayer === tiles[8]) {
+    $('#player-message').html(currentPlayer + ' wins')
+  } else {
+    $('#player-message').html('Draw')
+  }
 }
-
 
 const playerSwitch = function () {
   if (currentPlayer === 'X') {
@@ -48,18 +42,34 @@ const playerSwitch = function () {
   }
 }
 
+const gameData = {
+  'game': {
+    'cell': {
+      'index': null,
+      'value': null
+    },
+    'over': null
+  }
+}
+
 const onClick = function (event) {
+  const dataId = $(this).data('id')
+  tiles[dataId] = currentPlayer
   const text = $(this).text()
   if (text === '') {
     if (currentPlayer === 'X') {
       $(this).html(currentPlayer)
+      $('#player-message').text('O\'s turn')
     } else if (currentPlayer === 'O') {
       ($(this).html(currentPlayer))
+      $('#player-message').text('X\'s turn')
     }
+    gameData.game.cell.value = currentPlayer
+    gameData.game.cell.index = dataId
+    gameData.game.over = false
     playerSwitch()
   }
 }
-onClick()
 
 const addHandler = function () {
   $('#one').click(onClick)
@@ -74,5 +84,7 @@ const addHandler = function () {
 }
 
 module.exports = {
-  addHandler
+  addHandler,
+  gameData,
+  currentPlayer
 }
