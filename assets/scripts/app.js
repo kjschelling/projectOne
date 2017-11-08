@@ -63,10 +63,8 @@ const onClick = function (event) {
   if (text === '') {
     if (currentPlayer === 'X') {
       $(this).html(currentPlayer)
-      $('#player-message').text('O\'s turn')
     } else if (currentPlayer === 'O') {
       ($(this).html(currentPlayer))
-      $('#player-message').text('X\'s turn')
     }
 
     tiles[dataId] = currentPlayer
