@@ -1,58 +1,38 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# browser-template
+Hello! Welcome to my first attempt at building TIC TAC TOE!
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
 
-## Installation
+GitHub Public Account:
+https://kjschelling.github.io/projectOne/
 
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory.
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Replace all instances of `ga-wdi-boston.browser-template` with the name of your project.
-1.  Move into the new project and `git init`
-1.  Add all of the files in your project with the command `git add -A`
-  -   *Note:* THIS IS THE ONLY TIME YOU SHOULD RUN THIS COMMAND
-1.  Commit all of your files with the command `git commit`
-  -   Your commit title should read `Initial commit`
-1.  Install dependencies with `npm install`.
+Steps to solving!
 
-## Structure
+First I started with creating the board with HTML and CSS. Once I had the basic structure, I started to work on the game logic using jQuery and JS. After working for a couple hours, I found I hit a wall in my game logic and decided to work complete the game authentication (ajax and jQuery).
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+  I managed to get all the authentication working and started on the Game API (also ajax and jQuery). I was able to get
+  Create and update working properly, then touched back on the game logic...which isn't excatly working.
 
-Developers should set `config.apiOrigins.production` (and
-`config.apiOrigins.development` if it differs from the default).  With
-`apiOrigins` set, developers may rely on `config.apiOrigin` as the base for API
-URLs.
+  UnSolved problems.
+  1. Disable the game until signup and newgame have been clicked.
+  2. Find a better method to switch players and display the correct message at appropriate times.
+  3. Fix checkForWin function
+  4. Get GET games working and display played games and how many each player as won.
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss).
+Wireframe:
+https://imgur.com/gallery/Cc2ai?s=sms
 
-Developers should use [getFormFields](forms.md) to retrieve form data to send to
-an API.
+User stories:
+1. As a user I want to be able to sign up.
+    2. As a user I want to be able to sign in.
+    3. As a user I want to be able to sign out.
+    4. As a user I want to be able to see my score.
+    5. As a user I want to  be able to reset the game.
+    6. As a user I want to be able to see my wins and losses.
 
-To deploy a browser-template based SPA, run `grunt deploy`.
 
-## Tasks
 
-Developers should run these often!
 
--   `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
--   `grunt make-standard`: reformats all your code in the JavaScript Standard Style
--   `grunt <server|serve|s>`: generates bundles, watches, and livereloads
--   `grunt test`: runs any automated tests, depends on `grunt build`
--   `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
+
 
 ## [License](LICENSE)
 
