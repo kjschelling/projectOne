@@ -5,32 +5,42 @@ const store = require('./store')
 let currentPlayer = 'X'
 const tiles = ['', '', '', '', '', '', '', '', '']
 
+const gameData = {
+  'game': {
+    'cell': {
+      'index': null,
+      'value': null
+    },
+    'over': null
+  }
+}
+
+const clearBoard = function () {
+  for (let i = 0; i < tiles.length; i++) {
+    tiles[i] = ''
+  }
+  $('.tile').html('')
+}
+
 const checkForWin = function () {
-// horizonatonal wins
   if (currentPlayer === tiles[0] && currentPlayer === tiles[1] && currentPlayer === tiles[2]) {
     $('#player-message').html(currentPlayer + ' wins')
   } else if (currentPlayer === tiles[3] && currentPlayer === tiles[4] && currentPlayer === tiles[5]) {
     $('#player-message').html(currentPlayer + ' wins')
   } else if (currentPlayer === tiles[6] && currentPlayer === tiles[7] && currentPlayer === tiles[8]) {
     $('#player-message').html(currentPlayer + ' wins')
-  }
-
-  // vertical wins
-  if (currentPlayer === tiles[0] && currentPlayer === tiles[3] && currentPlayer === tiles[6]) {
+  } else if (currentPlayer === tiles[0] && currentPlayer === tiles[3] && currentPlayer === tiles[6]) {
     $('#player-message').html(currentPlayer + ' wins')
   } else if (currentPlayer === tiles[1] && currentPlayer === tiles[4] && currentPlayer === tiles[7]) {
     $('#player-message').html(currentPlayer + ' wins')
   } else if (currentPlayer === tiles[2] && currentPlayer === tiles[5] && currentPlayer === tiles[8]) {
     $('#player-message').html(currentPlayer + ' wins')
-  }
-
-  // diagonal wins
-  if (currentPlayer === tiles[2] && currentPlayer === tiles[4] && currentPlayer === tiles[6]) {
+  } else if (currentPlayer === tiles[2] && currentPlayer === tiles[4] && currentPlayer === tiles[6]) {
     $('#player-message').html(currentPlayer + ' wins')
   } else if (currentPlayer === tiles[0] && currentPlayer === tiles[4] && currentPlayer === tiles[8]) {
     $('#player-message').html(currentPlayer + ' wins')
   } else {
-    $('#player-message').html('Draw')
+    $('#player-message').html('Draw no winner')
   }
 }
 
@@ -42,19 +52,8 @@ const playerSwitch = function () {
   }
 }
 
-const gameData = {
-  'game': {
-    'cell': {
-      'index': null,
-      'value': null
-    },
-    'over': null
-  }
-}
-
 const onClick = function (event) {
-  const dataId = $(this).data('id')
-  tiles[dataId] = currentPlayer
+  const dataId = $(this).data('id') // assigns a variable to data-id
   const text = $(this).text()
   if (text === '') {
     if (currentPlayer === 'X') {
@@ -64,11 +63,13 @@ const onClick = function (event) {
       ($(this).html(currentPlayer))
       $('#player-message').text('X\'s turn')
     }
+
+    tiles[dataId] = currentPlayer
     gameData.game.cell.value = currentPlayer
     gameData.game.cell.index = dataId
     gameData.game.over = false
-    playerSwitch()
   }
+  playerSwitch()
 }
 
 const addHandler = function () {
@@ -86,5 +87,6 @@ const addHandler = function () {
 module.exports = {
   addHandler,
   gameData,
-  currentPlayer
+  currentPlayer,
+  clearBoard
 }

@@ -2,13 +2,19 @@
 
 
 footer {
+  background: darken($gray, 35%);
   border: 2px solid $black;
   clear: both;
   margin: 50px auto;
   max-width: 100%;
+  opacity: .75;
   text-align: center;
+
 }
 
+body {
+  background: url('https://i.pinimg.com/564x/01/e4/df/01e4df68a7568b6501661b9f5bd2abb9.jpg');
+}
 
 .gameboard {
   height: 302px;
@@ -17,8 +23,11 @@ footer {
 }
 
 .header {
+  color: $white;
+  font-size: 70px;
   max-width: 100%;
   text-align: center;
+  text-shadow: 2px 2px $gray;
 }
 
 #player-message {
@@ -27,15 +36,18 @@ footer {
 }
 
 .tile {
+  background: $white;
   border: 2px solid $black;
   float: left;
   font-family: Cambria;
   font-size: 70px;
   height: 100px;
+  opacity: .5;
   text-align: center;
   width: 100px;
 }
 
 .tile:hover {
-  background-color: lighten($teal, 20%);
+  background-color: lighten($teal, 30%);
+  opacity: .75;
 }

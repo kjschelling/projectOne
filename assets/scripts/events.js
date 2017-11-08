@@ -36,6 +36,7 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
+  app.clearBoard()
   api.signOut(data)
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -43,6 +44,7 @@ const onSignOut = function (event) {
 
 const onNewGame = function (event) {
   event.preventDefault()
+  app.clearBoard()
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
