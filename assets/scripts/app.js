@@ -5,6 +5,9 @@ const store = require('./store')
 let currentPlayer = 'X'
 const tiles = ['', '', '', '', '', '', '', '', '']
 
+// functions to hide sign forms when not needed.
+
+// game object for update PATCH
 const gameData = {
   'game': {
     'cell': {
@@ -58,10 +61,8 @@ const onClick = function (event) {
   if (text === '') {
     if (currentPlayer === 'X') {
       $(this).html(currentPlayer)
-      $('#player-message').text('O\'s turn')
     } else if (currentPlayer === 'O') {
       ($(this).html(currentPlayer))
-      $('#player-message').text('X\'s turn')
     }
 
     tiles[dataId] = currentPlayer

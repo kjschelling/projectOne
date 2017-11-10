@@ -55,7 +55,6 @@ const newGameFailure = function (error) {
 }
 
 const updateGameSuccess = function (data) {
-  $('#player-message').text(app.currentPlayer + ' turn')
   console.log(data)
 }
 
