@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('./store')
-const app = require('./app')
 
 const signUpSuccess = function (data) {
   console.log(data)

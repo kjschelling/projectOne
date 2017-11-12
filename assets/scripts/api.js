@@ -2,8 +2,9 @@
 
 const config = require('./config')
 const store = require('./store')
-const app = require('./app')
+const events = require('./events')
 
+// game auth functions
 const signUp = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
@@ -11,6 +12,7 @@ const signUp = function (data) {
     data
   })
 }
+
 const signIn = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
@@ -39,6 +41,8 @@ const signOut = function (event) {
     }
   })
 }
+
+// game api functions
 const newGame = function (event) {
   console.log('user is ', store.user)
   return $.ajax({
@@ -51,13 +55,14 @@ const newGame = function (event) {
 }
 
 const updateGame = function () {
+  console.log('Token is ', store.user.token)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: app.gameData
+    data: events.gameData
   })
 }
 
