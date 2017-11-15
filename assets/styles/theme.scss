@@ -1,19 +1,23 @@
 
+body {
+  background: url('https://i.pinimg.com/564x/01/e4/df/01e4df68a7568b6501661b9f5bd2abb9.jpg');
+}
 
+.btn-outline-success {
+  background: $teal;
+  opacity: .75;
+  border: 1px solid $gray;
+
+}
 
 footer {
   background: darken($gray, 35%);
-  border: 2px solid $black;
   clear: both;
   margin: 50px auto;
   max-width: 100%;
   opacity: .75;
   text-align: center;
 
-}
-
-body {
-  background: url('https://i.pinimg.com/564x/01/e4/df/01e4df68a7568b6501661b9f5bd2abb9.jpg');
 }
 
 .gameboard {
@@ -30,9 +34,21 @@ body {
   text-shadow: 2px 2px $gray;
 }
 
+.list-group {
+  background: $gray;
+  opacity: .75;
+}
+
+.new-game {
+  display: flex;
+  margin: 0 auto;
+}
+
 #player-message {
   font-size: 20px;
   text-align: center;
+  color: $white;
+  background: $gray;
 }
 
 .tile {

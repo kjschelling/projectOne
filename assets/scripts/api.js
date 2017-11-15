@@ -42,7 +42,9 @@ const signOut = function (event) {
   })
 }
 
-// game api functions
+/* GAME API FUNCTIONS  */
+
+// new game function
 const newGame = function (event) {
   console.log('user is ', store.user)
   return $.ajax({
@@ -54,6 +56,7 @@ const newGame = function (event) {
   })
 }
 
+// update game function
 const updateGame = function () {
   console.log('Token is ', store.user.token)
   return $.ajax({
@@ -62,10 +65,19 @@ const updateGame = function () {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: events.gameData
+    data: store.gameData
   })
 }
 
+// get game function
+// const getGame = function () {
+//   console.log('Token is ', store.user.token)
+//   return $.ajax({
+//     url: config.apiOrigin + '/games/' + store.game.id,
+//     method: 'GET',
+//     data: store.gameData
+//   })
+// }
 module.exports = {
   signUp,
   signIn,

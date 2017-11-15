@@ -17,6 +17,17 @@ const signInSuccess = function (data) {
   store.user = data.user
   console.log('store is ', store.user)
   $('#messageSignIn').text('Signed in successfully!')
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('.gameboard').show()
+  $('.new-game').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#signin-btn').hide()
+  $('#signup-btn').hide()
+  $('h4').hide()
+  $('h3').hide()
+  $('#player-message').text('Click new game to play!')
 }
 
 const signInFailure = function (error) {
@@ -30,7 +41,7 @@ const changePasswordSuccess = function (data) {
 }
 const changePasswordFailure = function (error) {
   console.error(error)
-  $('#messageChangePassword').text('Error password change')
+  $('#messageChangePassword').text('Change not made :(')
 }
 
 const signOutSuccess = function () {
@@ -43,13 +54,13 @@ const signOutFailure = function (error) {
 }
 
 const newGameSuccess = function (data) {
-  $('#player-message').text('New game created, X starts')
+  $('#player-message').text('Player X starts!')
   store.game = data.game
   console.log('store.game is ', store.game)
 }
 
 const newGameFailure = function (error) {
-  $('#player-message').text('New game error')
+  $('#player-message').text('Create game error')
   console.log(error)
 }
 

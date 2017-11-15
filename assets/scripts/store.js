@@ -7,7 +7,7 @@ const store = {
         'index': null,
         'value': null
       },
-      'over': null
+      'over': false
     }
   }
 }

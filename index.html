@@ -13,11 +13,61 @@
     </head>
     <body class="container-fluid">
 
-      <div class="header">
-            <h1>Tic Tac Toe</h1>
-            <input class="btn btn-primary new-game" type="submit" value="New Game">
+
+                       <!-- Sign up/ Sign In Container -->
+      <div class="signup-signin">
+
+
+        <button type="button" class="btn btn-outline-success" id="signup-btn">Sign Up</button>
+        <form id="sign-up">
+          <fieldset>
+            <legend>Sign up!</legend>
+            <p id="message"></p>
+            <input type="text" id="sign-up-email" name="credentials[email]" placeholder="Email">
+            <input type="text" id="sign-up-password" name="credentials[password]" placeholder="Password">
+            <input type="text" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+          </form>
+
+
+        <button type="button" class="btn btn-outline-success" id="signin-btn">Sign In</button>
+        <form id="sign-in">
+        <fieldset>
+            <legend>Sign in!</legend>
+            <p id="messageSignIn"></p>
+            <input type="text" id="sign-in-email" name="credentials[email]" placeholder="Email">
+            <input type="text" id="sign-in-password" name="credentials[password]" placeholder="Password">
+            <input type="submit" name="submit" value="Sign in!">
+        </fieldset>
+        </form>
+
+
       </div>
-              <p id='player-message'>Player Message</p>
+
+                        <!-- Game Board and Title -->
+
+
+
+
+            <h1 class="header">Tic Tac Toe</h1>
+            <input class="btn btn-primary new-game" type="submit" value="New Game">
+            <ul class="list-group">
+              <li class="list-group-item justify-content-between">
+                X Wins
+                <span class="badge badge-default badge-pill">0</span>
+              </li>
+              <li class="list-group-item justify-content-between">
+                O wins
+                <span class="badge badge-default badge-pill">0</span>
+              </li>
+              <li class="list-group-item justify-content-between">
+                Draw
+                <span class="badge badge-default badge-pill">0</span>
+                </li>
+              </ul>
+
+              <p id='player-message'>Sign up & sign in to play!</p>
               <div class="gameboard">
                 <div class="tile" data-id=0 id="one"></div>
                 <div class="tile" data-id=1 id="two"></div>
@@ -30,26 +80,10 @@
                 <div class="tile" data-id=8 id="nine"></div>
               </div>
 
+
+                        <!-- Change Password & Sign out footer -->
       <footer>
-        <form id="sign-up">
-                <fieldset>
-                  <legend>Sign up!</legend>
-                  <p id="message"></p>
-                  <input type="text" id="sign-up-email" name="credentials[email]" placeholder="Email">
-                  <input type="text" id="sign-up-password" name="credentials[password]" placeholder="Password">
-                  <input type="text" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Password Confirmation">
-                  <input type="submit" name="submit" value="Sign up!">
-                </fieldset>
-              </form>
-        <form id="sign-in">
-                <fieldset>
-                    <legend>Sign in!</legend>
-                    <p id="messageSignIn"></p>
-                    <input type="text" id="sign-in-email" name="credentials[email]" placeholder="Email">
-                    <input type="text" id="sign-in-password" name="credentials[password]" placeholder="Password">
-                    <input type="submit" name="submit" value="Sign in!">
-                </fieldset>
-              </form>
+
         <form id="change-password">
                   <fieldset>
                     <legend>Change Password</legend>
