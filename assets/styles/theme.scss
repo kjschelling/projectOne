@@ -5,8 +5,8 @@ body {
 
 .btn-outline-success {
   background: $teal;
-  opacity: .75;
   border: 1px solid $gray;
+  opacity: .75;
 
 }
 
@@ -26,6 +26,14 @@ footer {
   width: 302px;
 }
 
+.get-games {
+  background: $teal;
+  border: 1px solid $gray;
+  display: flex;
+  margin: 50px auto;
+  opacity: .75;
+}
+
 .header {
   color: $white;
   font-size: 70px;
@@ -34,21 +42,25 @@ footer {
   text-shadow: 2px 2px $gray;
 }
 
-.list-group {
+.played-games {
   background: $gray;
   opacity: .75;
 }
 
 .new-game {
+  background: $teal;
+  border: 1px solid $gray;
   display: flex;
-  margin: 0 auto;
+  margin: 50px auto;
+  opacity: .75;
 }
 
+
 #player-message {
+  background: $gray;
+  color: $white;
   font-size: 20px;
   text-align: center;
-  color: $white;
-  background: $gray;
 }
 
 .tile {

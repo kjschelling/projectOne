@@ -69,20 +69,24 @@ const updateGame = function () {
   })
 }
 
-// get game function
-// const getGame = function () {
-//   console.log('Token is ', store.user.token)
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/' + store.game.id,
-//     method: 'GET',
-//     data: store.gameData
-//   })
-// }
+// get played games
+const getGames = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   newGame,
-  updateGame
+  updateGame,
+  getGames
 }
