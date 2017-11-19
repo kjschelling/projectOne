@@ -57,7 +57,15 @@ const newGame = function (event) {
 }
 
 // update game function
-const updateGame = function () {
+// const data = {
+//     'game': {
+//       'cell': {
+//         'index': $(event.target).attr('value'),
+//         'value': $(event.target).html()
+//       }
+//     }
+//   }
+const updateGame = function (data) {
   console.log('Token is ', store.user.token)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.game.id,

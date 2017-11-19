@@ -29,7 +29,7 @@ const showSignIn = function () {
 let currentPlayer = 'X'
 let tiles = ['', '', '', '', '', '', '', '', '']
 
-/* GAME LOGIC FUNCTIONS */
+/* -------- GAME LOGIC FUNCTIONS ---------- */
 const clearBoard = function () {
   // clears game board
   for (let i = 0; i < tiles.length; i++) {
@@ -37,49 +37,58 @@ const clearBoard = function () {
   }
   $('.tile').html('')
   tiles = ['', '', '', '', '', '', '', '', '']
-  $('.gameboard').hide()
+  // $('.gameboard').hide()
 }
 
 const checkForWin = function () {
   // horizontal wins
   if (currentPlayer === tiles[0] && currentPlayer === tiles[1] && currentPlayer === tiles[2]) {
-    // $('#zero, #one, #two').css('background-color', 'white')
     clearBoard()
+    store.gameData.game.over = true
+    $('.gameboard').hide(800)
     $('#player-message').html(currentPlayer + ' wins')
   } else if (currentPlayer === tiles[3] && currentPlayer === tiles[4] && currentPlayer === tiles[5]) {
-    // $('#three #four #five').css({'background-color': 'white', 'opacity': 1})
-    $('#player-message').html(currentPlayer + ' wins')
     clearBoard()
+    $('#player-message').html(currentPlayer + ' wins')
+    store.gameData.game.over = true
+    $('.gameboard').hide(800)
   } else if (currentPlayer === tiles[6] && currentPlayer === tiles[7] && currentPlayer === tiles[8]) {
-    // $('#six #seven #eight').css({'background-color': 'white', 'opacity': 1})
-    $('#player-message').html(currentPlayer + ' wins')
     clearBoard()
+    $('#player-message').html(currentPlayer + ' wins')
+    store.gameData.game.over = true
+    $('.gameboard').hide(800)
     // Vertical wins
   } else if (currentPlayer === tiles[0] && currentPlayer === tiles[3] && currentPlayer === tiles[6]) {
-    // $('#zero #three #six').css({'background-color': 'white', 'opacity': 1})
-    $('#player-message').html(currentPlayer + ' wins')
     clearBoard()
+    $('#player-message').html(currentPlayer + ' wins')
+    store.gameData.game.over = true
+    $('.gameboard').hide(800)
   } else if (currentPlayer === tiles[1] && currentPlayer === tiles[4] && currentPlayer === tiles[7]) {
-    // $('#one #four #seven').css({'background-color': 'white', 'opacity': 1})
-    $('#player-message').html(currentPlayer + ' wins')
     clearBoard()
+    $('#player-message').html(currentPlayer + ' wins')
+    store.gameData.game.over = true
+    $('.gameboard').hide(800)
   } else if (currentPlayer === tiles[2] && currentPlayer === tiles[5] && currentPlayer === tiles[8]) {
-    // $('#two #five #eight').css({'background-color': 'white', 'opacity': 1})
-    $('#player-message').html(currentPlayer + ' wins')
     clearBoard()
+    $('#player-message').html(currentPlayer + ' wins')
+    store.gameData.game.over = true
+    $('.gameboard').hide(800)
     // diagonal wins
   } else if (currentPlayer === tiles[2] && currentPlayer === tiles[4] && currentPlayer === tiles[6]) {
-    // $('#two #four #six').css({'background-color': 'white', 'opacity': 1})
-    $('#player-message').html(currentPlayer + ' wins')
     clearBoard()
+    $('#player-message').html(currentPlayer + ' wins')
+    store.gameData.game.over = true
+    $('.gameboard').hide(800)
   } else if (currentPlayer === tiles[0] && currentPlayer === tiles[4] && currentPlayer === tiles[8]) {
-    // $('#zero #four #eight').css({'background-color': 'white', 'opacity': 1})
+    clearBoard()
     $('#player-message').html(currentPlayer + ' wins')
-    clearBoard()
+    store.gameData.game.over = true
+    $('.gameboard').hide(800)
   } else if (tiles.every((value, index, array) => value !== '')) {
-    // $('.tile').css({'background-color': 'white', 'opacity': 1})
-    $('#player-message').html('Draw!')
     clearBoard()
+    $('#player-message').html('Draw!')
+    store.gameData.game.over = true
+    $('.gameboard').hide(800)
   }
 }
 
@@ -90,7 +99,7 @@ const playerSwitch = function () {
     $('#player-message').html(currentPlayer + '\'s turn!')
   } else if (currentPlayer === 'O') {
     currentPlayer = 'X'
-    $('#player-message').html(currentPlayer + '\'s turn!')
+    $('#player-message').html('X\'s turn!')
   }
 }
 
@@ -128,10 +137,9 @@ const onChangePassword = function (event) {
 
 // on sign out
 const onSignOut = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
   clearBoard()
-  api.signOut(data)
+  api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
@@ -150,35 +158,38 @@ const onNewGame = function (event) {
 
 // on update game
 const onUpdateGame = function (event) {
-  event.preventDefault()
+  const dataId = $(event.target).data('id') // assigns a variable to data-id
+  const text = $(event.target).text()
+  tiles[dataId] = currentPlayer
+  store.gameData.game.cell.value = currentPlayer
+  store.gameData.game.cell.index = dataId
+  store.gameData.game.over = false
+  // event.preventDefault()
   // console.log('Game data is ', store.gameData)
   // console.log('Store data ID is ', store.game.id)
   // console.log('Token is ', store.user.token)
   // targets the div when clicked
   // moved onClick into onUpdateGame
-  const dataId = $(event.target).data('id') // assigns a variable to data-id
-  const text = $(event.target).text()
-  tiles[dataId] = currentPlayer
-  if (text === '') {
+  if (text !== '') {
+    $('#player-message').hmtl('This spot is taken!')
+  } else if (text === '') {
     if (currentPlayer === 'X') {
       $(this).html(currentPlayer)
+      playerSwitch()
     } else if (currentPlayer === 'O') {
       ($(this).html(currentPlayer))
+      playerSwitch()
     }
   }
-  store.gameData.game.cell.value = currentPlayer
-  store.gameData.game.cell.index = dataId
-  store.gameData.game.over = false
+  checkForWin()
   api.updateGame()
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
-  playerSwitch()
-  checkForWin()
 }
 
 // on get games
 const onGetGames = function (event) {
-  api.getGames(event)
+  api.getGames()
     .then(ui.getGamesSuccess)
     .catch(ui.getGamesFailure)
 }
@@ -197,6 +208,5 @@ const addHandlers = function () {
 }
 
 module.exports = {
-  addHandlers,
-  currentPlayer
+  addHandlers
 }

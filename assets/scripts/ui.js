@@ -5,7 +5,10 @@ const store = require('./store')
 // sign up  success
 const signUpSuccess = function (data) {
   console.log(data)
-  $('#message').text('Signed up successfully!')
+  $('#message').text('Signed up successfully! Now sign in to play game!')
+  $('#sign-up-email').val('')
+  $('#sign-up-password').val('')
+  $('sign-up-password-confirmation')
 }
 // sign up fail
 const signUpFailure = function (error) {
@@ -31,6 +34,8 @@ const signInSuccess = function (data) {
   $('#player-message').text('Click new game to play!')
   $('.list-group').show()
   $('.get-games').show()
+  $('#sign-in-email').val('')
+  $('#sign-in-password').val('')
 }
 
 // sign in fail
@@ -54,6 +59,17 @@ const changePasswordFailure = function (error) {
 const signOutSuccess = function () {
   $('#messageSignOut').text('Signed out!')
   store.user = null
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('.gameboard').hide()
+  $('.new-game').hide()
+  $('.list-group').hide()
+  $('.get-games').hide()
+  $('#player-message').hide()
+  $('#signup-btn').show()
+  $('#signin-btn').show()
 }
 
 // sign out fail
