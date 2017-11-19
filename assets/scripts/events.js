@@ -43,63 +43,65 @@ const clearBoard = function () {
 const checkForWin = function () {
   // horizontal wins
   if (currentPlayer === tiles[0] && currentPlayer === tiles[1] && currentPlayer === tiles[2]) {
-    clearBoard()
     store.gameData.game.over = true
     $('.gameboard').hide(800)
     $('#player-message').html(currentPlayer + ' wins')
+    return true
   } else if (currentPlayer === tiles[3] && currentPlayer === tiles[4] && currentPlayer === tiles[5]) {
-    clearBoard()
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
+    return true
   } else if (currentPlayer === tiles[6] && currentPlayer === tiles[7] && currentPlayer === tiles[8]) {
-    clearBoard()
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
+    return true
     // Vertical wins
   } else if (currentPlayer === tiles[0] && currentPlayer === tiles[3] && currentPlayer === tiles[6]) {
-    clearBoard()
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
+    return true
   } else if (currentPlayer === tiles[1] && currentPlayer === tiles[4] && currentPlayer === tiles[7]) {
-    clearBoard()
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
+    return true
   } else if (currentPlayer === tiles[2] && currentPlayer === tiles[5] && currentPlayer === tiles[8]) {
-    clearBoard()
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
+    return true
     // diagonal wins
   } else if (currentPlayer === tiles[2] && currentPlayer === tiles[4] && currentPlayer === tiles[6]) {
-    clearBoard()
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
+    return true
   } else if (currentPlayer === tiles[0] && currentPlayer === tiles[4] && currentPlayer === tiles[8]) {
-    clearBoard()
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
+    return true
   } else if (tiles.every((value, index, array) => value !== '')) {
-    clearBoard()
     $('#player-message').html('Draw!')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
+    return false
   }
 }
 
 // switches players
 const playerSwitch = function () {
-  if (currentPlayer === 'X') {
-    currentPlayer = 'O'
-    $('#player-message').html(currentPlayer + '\'s turn!')
-  } else if (currentPlayer === 'O') {
-    currentPlayer = 'X'
-    $('#player-message').html('X\'s turn!')
+  if (!store.gameData.game.over) {
+    if (currentPlayer === 'X') {
+      currentPlayer = 'O'
+      $('#player-message').html(currentPlayer + '\'s turn!')
+    } else if (currentPlayer === 'O') {
+      currentPlayer = 'X'
+      $('#player-message').html('X\'s turn!')
+    }
   }
 }
 
@@ -175,18 +177,20 @@ const onUpdateGame = function (event) {
   } else if (text === '') {
     if (currentPlayer === 'X') {
       $(this).html(currentPlayer)
-      playerSwitch()
+      // checkForWin()
     } else if (currentPlayer === 'O') {
       ($(this).html(currentPlayer))
-      playerSwitch()
+      // checkForWin()
     }
   }
-  checkForWin()
   api.updateGame()
     .then(ui.updateGameSuccess)
+    .then(() => {
+      checkForWin()
+      playerSwitch()
+    })
     .catch(ui.updateGameFailure)
 }
-
 // on get games
 const onGetGames = function (event) {
   api.getGames()
