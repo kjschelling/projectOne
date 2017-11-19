@@ -83,7 +83,6 @@ const checkForWin = function () {
     $('#player-message').html('Draw!')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
-
   }
 }
 
