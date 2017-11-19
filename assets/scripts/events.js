@@ -175,15 +175,16 @@ const onUpdateGame = function (event) {
   } else if (text === '') {
     if (currentPlayer === 'X') {
       $(this).html(currentPlayer)
-      playerSwitch()
     } else if (currentPlayer === 'O') {
       ($(this).html(currentPlayer))
-      playerSwitch()
     }
   }
-  checkForWin()
   api.updateGame()
     .then(ui.updateGameSuccess)
+    .then(() => {
+      playerSwitch()
+      checkForWin()
+    })
     .catch(ui.updateGameFailure)
 }
 
