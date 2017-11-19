@@ -12,49 +12,71 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <div class="header">
-            <h1>Tic Tac Toe</h1>
-            <input class="btn btn-primary new-game" type="submit" value="New Game">
+
+
+                       <!-- Sign up/ Sign In Container -->
+      <div class="signup-signin">
+
+
+        <button type="button" class="btn btn-outline-success" id="signup-btn">Sign Up</button>
+        <form id="sign-up">
+          <fieldset>
+            <legend>Sign up!</legend>
+            <p id="message"></p>
+            <input type="text" id="sign-up-email" name="credentials[email]" placeholder="Email">
+            <input type="text" id="sign-up-password" name="credentials[password]" placeholder="Password">
+            <input type="text" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+          </form>
+
+
+        <button type="button" class="btn btn-outline-success" id="signin-btn">Sign In</button>
+        <form id="sign-in">
+        <fieldset>
+            <legend>Sign in!</legend>
+            <p id="messageSignIn"></p>
+            <input type="text" id="sign-in-email" name="credentials[email]" placeholder="Email">
+            <input type="text" id="sign-in-password" name="credentials[password]" placeholder="Password">
+            <input type="submit" name="submit" value="Sign in!">
+        </fieldset>
+        </form>
+
+
       </div>
-              <p id='player-message'>Player Message</p>
+
+                        <!-- Game Board and Title -->
+
+
+
+
+            <h1 class="header">Tic Tac Toe</h1>
+            <input class="btn btn-primary new-game" value="New Game">
+            <input class="btn btn-primary get-games" value="Get Games">
+
+              <p id='player-message'>Sign up & sign in to play!</p>
               <div class="gameboard">
-                <div class="tile" data-id=0 id="one"></div>
-                <div class="tile" data-id=1 id="two"></div>
-                <div class="tile" data-id=2 id="three"></div>
-                <div class="tile" data-id=3 id="four"></div>
-                <div class="tile" data-id=4 id="five"></div>
-                <div class="tile" data-id=5 id="six"></div>
-                <div class="tile" data-id=6 id="seven"></div>
-                <div class="tile" data-id=7 id="eight"></div>
-                <div class="tile" data-id=8 id="nine"></div>
+                <div class="tile" data-id=0 id="zero"></div>
+                <div class="tile" data-id=1 id="one"></div>
+                <div class="tile" data-id=2 id="two"></div>
+                <div class="tile" data-id=3 id="three"></div>
+                <div class="tile" data-id=4 id="four"></div>
+                <div class="tile" data-id=5 id="five"></div>
+                <div class="tile" data-id=6 id="six"></div>
+                <div class="tile" data-id=7 id="seven"></div>
+                <div class="tile" data-id=8 id="eight"></div>
               </div>
 
+
+                        <!-- Change Password & Sign out footer -->
       <footer>
-        <form id="sign-up">
-                <fieldset>
-                  <legend>Sign up!</legend>
-                  <p id="message"></p>
-                  <input type="text" id="sign-up-email" name="credentials[email]" placeholder="Email">
-                  <input type="text" id="sign-up-password" name="credentials[password]" placeholder="Password">
-                  <input type="text" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Password Confirmation">
-                  <input type="submit" name="submit" value="Sign up!">
-                </fieldset>
-              </form>
-        <form id="sign-in">
-                <fieldset>
-                    <legend>Sign in!</legend>
-                    <p id="messageSignIn"></p>
-                    <input type="text" id="sign-in-email" name="credentials[email]" placeholder="Email">
-                    <input type="text" id="sign-in-password" name="credentials[password]" placeholder="Password">
-                    <input type="submit" name="submit" value="Sign in!">
-                </fieldset>
-              </form>
+
         <form id="change-password">
                   <fieldset>
                     <legend>Change Password</legend>
                     <p id="messageChangePassword"></p>
-                    <input type="text"  name="passwords[old]" placeholder="Old Password">
-                    <input type="text"  name="passwords[new]" placeholder="New Password">
+                    <input id="old-password" type="text"  name="passwords[old]" placeholder="Old Password">
+                    <input id="new-password"type="text"  name="passwords[new]" placeholder="New Password">
                     <input type="submit" name="submit" value="change!">
                   </fieldset>
                 </form>

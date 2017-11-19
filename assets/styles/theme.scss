@@ -1,9 +1,17 @@
 
+body {
+  background: url('https://i.pinimg.com/564x/01/e4/df/01e4df68a7568b6501661b9f5bd2abb9.jpg');
+}
 
+.btn-outline-success {
+  background: $teal;
+  border: 1px solid $gray;
+  opacity: .75;
+
+}
 
 footer {
   background: darken($gray, 35%);
-  border: 2px solid $black;
   clear: both;
   margin: 50px auto;
   max-width: 100%;
@@ -12,14 +20,18 @@ footer {
 
 }
 
-body {
-  background: url('https://i.pinimg.com/564x/01/e4/df/01e4df68a7568b6501661b9f5bd2abb9.jpg');
-}
-
 .gameboard {
   height: 302px;
   margin: 100px auto;
   width: 302px;
+}
+
+.get-games {
+  background: $teal;
+  border: 1px solid $gray;
+  display: flex;
+  margin: 50px auto;
+  opacity: .75;
 }
 
 .header {
@@ -30,7 +42,23 @@ body {
   text-shadow: 2px 2px $gray;
 }
 
+.played-games {
+  background: $gray;
+  opacity: .75;
+}
+
+.new-game {
+  background: $teal;
+  border: 1px solid $gray;
+  display: flex;
+  margin: 50px auto;
+  opacity: .75;
+}
+
+
 #player-message {
+  background: $gray;
+  color: $white;
   font-size: 20px;
   text-align: center;
 }
