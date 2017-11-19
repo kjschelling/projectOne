@@ -46,49 +46,44 @@ const checkForWin = function () {
     store.gameData.game.over = true
     $('.gameboard').hide(800)
     $('#player-message').html(currentPlayer + ' wins')
-    return true
   } else if (currentPlayer === tiles[3] && currentPlayer === tiles[4] && currentPlayer === tiles[5]) {
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
-    return true
   } else if (currentPlayer === tiles[6] && currentPlayer === tiles[7] && currentPlayer === tiles[8]) {
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
-    return true
     // Vertical wins
   } else if (currentPlayer === tiles[0] && currentPlayer === tiles[3] && currentPlayer === tiles[6]) {
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
-    return true
   } else if (currentPlayer === tiles[1] && currentPlayer === tiles[4] && currentPlayer === tiles[7]) {
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
-    return true
   } else if (currentPlayer === tiles[2] && currentPlayer === tiles[5] && currentPlayer === tiles[8]) {
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
-    return true
+
     // diagonal wins
   } else if (currentPlayer === tiles[2] && currentPlayer === tiles[4] && currentPlayer === tiles[6]) {
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
-    return true
   } else if (currentPlayer === tiles[0] && currentPlayer === tiles[4] && currentPlayer === tiles[8]) {
     $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
-    return true
+
+    // return true
   } else if (tiles.every((value, index, array) => value !== '')) {
     $('#player-message').html('Draw!')
     store.gameData.game.over = true
     $('.gameboard').hide(800)
-    return false
+
   }
 }
 
