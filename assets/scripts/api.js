@@ -44,7 +44,7 @@ const signOut = function (event) {
 /* GAME API FUNCTIONS  */
 
 // new game function
-const newGame = function (event) {
+const newGame = function () {
   // console.log('user is ', store.user)
   return $.ajax({
     url: config.apiOrigin + '/games',

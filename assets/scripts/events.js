@@ -36,7 +36,7 @@ const clearBoard = function () {
     tiles[i] = ''
   }
   $('.tile').html('')
-  tiles = ['', '', '', '', '', '', '', '', '']
+  store.gameData.game.over = false
   // $('.gameboard').hide()
 }
 
@@ -184,7 +184,6 @@ const onUpdateGame = function (event) {
       ($(this).html(currentPlayer))
     }
   }
-
   api.updateGame()
     .then(ui.updateGameSuccess)
     .then(() => {
