@@ -183,7 +183,6 @@ const onUpdateGame = function (event) {
       ($(this).html(currentPlayer))
     }
   }
-
   api.updateGame()
     .then(ui.updateGameSuccess)
     .then(() => {

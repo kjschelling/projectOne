@@ -82,6 +82,7 @@ const newGameSuccess = function (data) {
   $('.gameboard').show()
   $('.get-games').show()
   $('#game-message').html('')
+  $('#messageChangePassword').html('')
 }
 
 const newGameFailure = function () {
