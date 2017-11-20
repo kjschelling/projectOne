@@ -46,44 +46,52 @@ const checkForWin = function () {
     store.gameData.game.over = true
     $('.gameboard').hide(800)
     $('#player-message').html(currentPlayer + ' wins')
+    $('#game-message').html('')
   } else if (currentPlayer === tiles[3] && currentPlayer === tiles[4] && currentPlayer === tiles[5]) {
-    $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
+    $('#player-message').html(currentPlayer + ' wins')
     $('.gameboard').hide(800)
+    $('#game-message').html('')
   } else if (currentPlayer === tiles[6] && currentPlayer === tiles[7] && currentPlayer === tiles[8]) {
-    $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
+    $('#player-message').html(currentPlayer + ' wins')
     $('.gameboard').hide(800)
+    $('#game-message').html('')
     // Vertical wins
   } else if (currentPlayer === tiles[0] && currentPlayer === tiles[3] && currentPlayer === tiles[6]) {
-    $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
+    $('#player-message').html(currentPlayer + ' wins')
     $('.gameboard').hide(800)
+    $('#game-message').html('')
   } else if (currentPlayer === tiles[1] && currentPlayer === tiles[4] && currentPlayer === tiles[7]) {
-    $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
+    $('#player-message').html(currentPlayer + ' wins')
     $('.gameboard').hide(800)
+    $('#game-message').html('')
   } else if (currentPlayer === tiles[2] && currentPlayer === tiles[5] && currentPlayer === tiles[8]) {
-    $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
+    $('#player-message').html(currentPlayer + ' wins')
     $('.gameboard').hide(800)
+    $('#game-message').html('')
 
     // diagonal wins
   } else if (currentPlayer === tiles[2] && currentPlayer === tiles[4] && currentPlayer === tiles[6]) {
-    $('#player-message').html(currentPlayer + ' wins')
     store.gameData.game.over = true
+    $('#player-message').html(currentPlayer + ' wins')
     $('.gameboard').hide(800)
+    $('#game-message').html('')
   } else if (currentPlayer === tiles[0] && currentPlayer === tiles[4] && currentPlayer === tiles[8]) {
+    store.gameData.game.over = true
     $('#player-message').html(currentPlayer + ' wins')
-    store.gameData.game.over = true
     $('.gameboard').hide(800)
-
-    // return true
+    $('#game-message').html('')
   } else if (tiles.every((value, index, array) => value !== '')) {
-    $('#player-message').html('Draw!')
     store.gameData.game.over = true
+    $('#player-message').html('Draw!')
     $('.gameboard').hide(800)
+    $('#game-message').html('')
   }
+  // console.log(store.gameData)
 }
 
 // switches players
@@ -98,13 +106,12 @@ const playerSwitch = function () {
     }
   }
 }
-
 /* GAME AUTHORIZATION FUNCTIONS */
 
 // on sign up
 const onSignUp = function (event) {
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -114,7 +121,7 @@ const onSignUp = function (event) {
 // on sign in
 const onSignIn = function (event) {
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
@@ -124,7 +131,7 @@ const onSignIn = function (event) {
 // on change password
 const onChangePassword = function (event) {
   const data = getFormFields(this)
-  console.log(data)
+
   event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
@@ -159,15 +166,14 @@ const onUpdateGame = function (event) {
   tiles[dataId] = currentPlayer
   store.gameData.game.cell.value = currentPlayer
   store.gameData.game.cell.index = dataId
-  store.gameData.game.over = false
-  // event.preventDefault()
+  // store.gameData.game.over = false
   // console.log('Game data is ', store.gameData)
   // console.log('Store data ID is ', store.game.id)
   // console.log('Token is ', store.user.token)
   // targets the div when clicked
   // moved onClick into onUpdateGame
   if (text !== '') {
-    $('#player-message').hmtl('This spot is taken!')
+    $('#player-message').html('This spot is taken!')
   } else if (text === '') {
     if (currentPlayer === 'X') {
       $(this).html(currentPlayer)
@@ -178,6 +184,7 @@ const onUpdateGame = function (event) {
       ($(this).html(currentPlayer))
     }
   }
+
   api.updateGame()
     .then(ui.updateGameSuccess)
     .then(() => {
@@ -188,6 +195,7 @@ const onUpdateGame = function (event) {
 }
 // on get games
 const onGetGames = function (event) {
+  event.preventDefault()
   api.getGames()
     .then(ui.getGamesSuccess)
     .catch(ui.getGamesFailure)
