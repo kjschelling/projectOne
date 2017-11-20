@@ -1,22 +1,38 @@
 
-Hello! Welcome to my first attempt at building TIC TAC TOE!
+Hello! Welcome to my first built from scratch Tic Tac Toe Game!
+My first project for General Assembly's Web Development Immersive Program!
 
 
 GitHub Public Account:
+https://github.com/kjschelling/projectOne
+
+Deployed Project:
 https://kjschelling.github.io/projectOne/
 
 Steps to solving!
 
-First I started with creating the board with HTML and CSS. Once I had the basic structure, I started to work on the game logic using jQuery and JS. After working for a couple hours, I found I hit a wall in my game logic and decided to work complete the game authentication (ajax and jQuery).
+Step 1. Create a game board using HTML and CSS!
 
-  I managed to get all the authentication working and started on the Game API (also ajax and jQuery). I was able to get
-  Create and update working properly, then touched back on the game logic...which isn't excatly working.
+Step 2. Get game Authorization working so user can sign up, sign in, change password and sign out!
 
-  UnSolved problems.
-  1. Disable the game until signup and newgame have been clicked.
-  2. Find a better method to switch players and display the correct message at appropriate times.
-  3. Fix checkForWin function
-  4. Get GET games working and display played games and how many each player as won.
+Step 3. Get game logic working, recognize if either X wins, O wins or a draw!
+
+Step 4. Added the Game API, create game, update, game and new game.
+
+Step 5. Add additonal styling!
+
+
+Things I will change.
+- Have a better user experience
+- display how many games you have won, lost and ties.
+
+Technologies Used
+- HTML
+- CSS
+- Javascript
+- jQuery
+- Bootstrap
+- AJAX
 
 Wireframe:
 https://imgur.com/gallery/Cc2ai?s=sms
@@ -27,10 +43,7 @@ User stories:
     3. As a user I want to be able to sign out.
     4. As a user I want to be able to see my score.
     5. As a user I want to  be able to reset the game.
-    6. As a user I want to be able to see my wins and losses.
-
-
-
+    6. As a user I want to be able to see how many games they have played.
 
 
 
