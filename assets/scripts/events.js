@@ -36,7 +36,7 @@ const clearBoard = function () {
     tiles[i] = ''
   }
   $('.tile').html('')
-  tiles = ['', '', '', '', '', '', '', '', '']
+  store.gameData.game.over = false
   // $('.gameboard').hide()
 }
 

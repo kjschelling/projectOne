@@ -17,7 +17,9 @@ Step 2. Get game Authorization working so user can sign up, sign in, change pass
 
 Step 3. Get game logic working, recognize if either X wins, O wins or a draw!
 
-Step 4. Add 
+Step 4. Added the Game API, create game, update, game and new game.
+
+Step 5. Add additonal styling!
 
 
 Things I will change.
