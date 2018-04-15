@@ -8,7 +8,8 @@ const signUpSuccess = function () {
   $('#message').text('Signed up successfully! Now sign in to play game!')
   $('#sign-up-email').val('')
   $('#sign-up-password').val('')
-  $('sign-up-password-confirmation')
+  $('#sign-up-password-confirmation').val('')
+  $()
 }
 // sign up fail
 const signUpFailure = function () {
