@@ -29,7 +29,7 @@ const signInSuccess = function (data) {
   $('#signup-btn').hide()
   $('h4').hide()
   $('h3').hide()
-  $('#player-message').text('Click new game to play!')
+  // $('#player-message').text('Click new game to play!')
   $('.list-group').show()
   $('#sign-in-email').val('')
   $('#sign-in-password').val('')

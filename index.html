@@ -15,7 +15,58 @@
 
 
                        <!-- Sign up/ Sign In Container -->
-      <div class="signup-signin">
+<div class="signUpSignInContainer">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+      <h2>Sign in or Sign up to play!</h2>
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#signin">Sign in</a></li>
+        <li><a data-toggle="tab" href="#signup">Sign up</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="signin" class="tab-pane fade in active">
+          <h3>SIGN IN</h3>
+          <form role="Form" method="POST" action="" accept-charset="UTF-8">
+            <div class="form-group">
+              <input type="text" name="email" placeholder="Email..." class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" placeholder="Password..." class="form-control">
+            </div>
+           <!--  <div class="form-group">
+              <label>
+                <input type="checkbox" name="remember"> Remember me
+              </label>
+            </div> -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div id="signup" class="tab-pane fade">
+          <h3>SIGN UP</h3>
+          <form role="Form" method="POST" action="" accept-charset="UTF-8">
+            <div class="form-group">
+              <input type="text" name="email" placeholder="Email..." class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" placeholder="Password..." class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" name="password2" placeholder="Verify password..." class="form-control">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- <div class="signup-signin">
 
 
         <button type="button" class="btn btn-outline-success" id="signup-btn">Sign Up</button>
@@ -43,18 +94,18 @@
         </form>
 
 
-      </div>
+      </div> -->
 
                         <!-- Game Board and Title -->
 
 
-
+          <div id="gameboardContainer">
 
             <h1 class="header">Tic Tac Toe</h1>
             <input class="btn btn-primary new-game" value="New Game">
             <input class="btn btn-primary get-games" value="Get Games">
 
-              <p id='player-message'>Sign up & sign in to play!</p>
+              <!-- <p id='player-message'>Sign up & Sign in to play!</p> -->
               <p id='game-message'></p>
               <div class="gameboard">
                 <div class="tile" data-id=0 id="zero"></div>
@@ -67,6 +118,7 @@
                 <div class="tile" data-id=7 id="seven"></div>
                 <div class="tile" data-id=8 id="eight"></div>
               </div>
+          </div>
 
 
                         <!-- Change Password & Sign out footer -->
