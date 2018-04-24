@@ -1,6 +1,7 @@
 'use strict'
 
-const config = require('./config')
+const config = require('./config') 
+// creating a constant that is requiring all the variables in the config.js folder 
 const store = require('./store')
 
 // game auth functions

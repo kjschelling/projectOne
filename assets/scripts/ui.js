@@ -9,7 +9,6 @@ const signUpSuccess = function () {
   $('#sign-up-email').val('')
   $('#sign-up-password').val('')
   $('#sign-up-password-confirmation').val('')
-  $()
 }
 // sign up fail
 const signUpFailure = function () {
@@ -23,8 +22,8 @@ const signInSuccess = function (data) {
   $('#change-password').show()
   $('#sign-out').show()
   $('.new-game').show()
-  $('#sign-up').hide()
-  $('#sign-in').hide()
+  $('#signup').hide()
+  $('#signin').hide()
   $('#signin-btn').hide()
   $('#signup-btn').hide()
   $('h4').hide()

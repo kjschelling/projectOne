@@ -37,11 +37,10 @@ const clearBoard = function () {
   }
   $('.tile').html('')
   store.gameData.game.over = false
-  // $('.gameboard').hide()
 }
 
 const checkForWin = function () {
-  // horizontal wins
+  // horizontal wins - 
   if (currentPlayer === tiles[0] && currentPlayer === tiles[1] && currentPlayer === tiles[2]) {
     store.gameData.game.over = true
     $('.gameboard').hide(800)
@@ -111,7 +110,7 @@ const playerSwitch = function () {
 // on sign up
 const onSignUp = function (event) {
   const data = getFormFields(this)
-  // console.log(data)
+  console.log(data)
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -133,7 +132,9 @@ const onChangePassword = function (event) {
   const data = getFormFields(this)
 
   event.preventDefault()
+  // this event.preventDefault stops the page from refreshing when the event happens
   api.changePassword(data)
+  // this .then .catch is a promise 
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
