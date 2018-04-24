@@ -21,20 +21,20 @@
     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
       <h2>Sign in or Sign up to play!</h2>
       <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#signin">Sign in</a></li>
-        <li><a data-toggle="tab" href="#signup">Sign up</a></li>
+        <li class="active"><a data-toggle="tab" href="#signin-container">Sign in</a></li>
+        <li><a data-toggle="tab" href="#signup-container">Sign up</a></li>
       </ul>
 
       <div class="tab-content">
-        <div id="signin" class="tab-pane fade in active">
+        <div id="signin-container" class="tab-pane fade in active">
           <h3>SIGN IN</h3>
-          <form role="Form" accept-charset="UTF-8">
+          <form id="signin">
             <!-- method="POST" action="" , removed from line above -->
               <div class="form-group">
                 <input type="text" id="sign-in-email" name="credentials[email]" placeholder="Email..." class="form-control">
               </div>
               <div class="form-group">
-                <input type="password" name="credentials[password]" id="sign-in-password" placeholder="Password..." class="form-control">
+                <input type="text" name="credentials[password]" id="sign-in-password" placeholder="Password..." class="form-control">
               </div>
              <!--  <div class="form-group">
                 <label>
@@ -42,26 +42,26 @@
                 </label>
               </div> -->
               <div class="form-group">
-                <button type="submit" id="signin-btn" class="btn btn-default">Submit</button>
+                <input type="submit" id="signin-btn" value="Submit">
               </div>
           </form>
         </div>
 
-        <div id="signup" class="tab-pane fade">
+        <div id="signup-container" class="tab-pane fade">
           <h3>SIGN UP</h3>
-          <form role="Form" accept-charset="UTF-8">
-            <!-- method="POST" action=""  , removed from line above-->
+          <form id="signup">
+            <!-- method="POST" action="" accept-charset="UTF-8"  , removed from line above-->
               <div class="form-group">
-                <input type="text" name="email" id="sign-up-email" name="credentials[email]" placeholder="Email..." class="form-control">
+                <input type="text" id="sign-up-email" name="credentials[email]" placeholder="Email..." class="form-control">
               </div>
               <div class="form-group">
-                <input type="password" name="password" id="sign-up-password" name="credentials[password]" placeholder="Password..." class="form-control">
+                <input type="text" id="sign-up-password" name="credentials[password]" placeholder="Password..." class="form-control">
               </div>
               <div class="form-group">
-                <input type="password" name="password2" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Verify password..." class="form-control">
+                <input type="text" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Verify password..." class="form-control">
               </div>
               <div class="form-group">
-                <button type="submit" id="signup-btn" class="btn btn-default">Submit</button>
+                <input type="submit" id="signup-btn" value="Submit">
               </div>
           </form>
         </div>
@@ -76,11 +76,11 @@
         <button type="button" class="btn btn-outline-success" id="signup-btn">Sign Up</button>
         <form id="sign-up">
           <fieldset>
-            <legend>Sign up!</legend>
+            <input type="text" id="sign-up-password" name="credentials[password]" placeholder="Password">
+           <legend>Sign up!</legend>
             <p id="message"></p>
             <input type="text" id="sign-up-email" name="credentials[email]" placeholder="Email">
-            <input type="text" id="sign-up-password" name="credentials[password]" placeholder="Password">
-            <input type="text" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Password Confirmation">
+             <input type="text" id="sign-up-password-confirmation" name="credentials[password_confirmation]" placeholder="Password Confirmation">
             <input type="submit" name="submit" value="Sign up!">
           </fieldset>
           </form>
@@ -133,7 +133,7 @@
                     <legend>Change Password</legend>
                     <p id="messageChangePassword"></p>
                     <input id="old-password" type="text"  name="passwords[old]" placeholder="Old Password">
-                    <input id="new-password"type="text"  name="passwords[new]" placeholder="New Password">
+                    <input id="new-password" type="text"  name="passwords[new]" placeholder="New Password">
                     <input type="submit" name="submit" value="change!">
                   </fieldset>
                 </form>

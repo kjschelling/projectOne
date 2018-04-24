@@ -6,8 +6,8 @@ const ui = require('./ui')
 const store = require('./store')
 
 // default page
-$('#sign-up').hide()
-$('#sign-in').hide()
+// $('#sign-up').hide()
+// $('#sign-in').hide()
 $('#change-password').hide()
 $('#sign-out').hide()
 $('.gameboard').hide()
@@ -16,14 +16,16 @@ $('.list-group').hide()
 $('.get-games').hide()
 
 // function to show sign up form
-const showSignUp = function () {
-  $('#sign-up').show()
-}
+
+// const showSignUp = function () {
+//   $('#signup').show()
+// }
 
 // function to show sign up form
-const showSignIn = function () {
-  $('#sign-in').show()
-}
+
+// const showSignIn = function () {
+//   $('#signin').show()
+// }
 
 // variables to play game
 let currentPlayer = 'X'
@@ -110,7 +112,6 @@ const playerSwitch = function () {
 // on sign up
 const onSignUp = function (event) {
   const data = getFormFields(this)
-  console.log(data)
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
@@ -120,7 +121,6 @@ const onSignUp = function (event) {
 // on sign in
 const onSignIn = function (event) {
   const data = getFormFields(this)
-  // console.log(data)
   event.preventDefault()
   api.signIn(data)
     .then(ui.signInSuccess)
@@ -202,10 +202,8 @@ const onGetGames = function (event) {
 
 // event handlers
 const addHandlers = function () {
-  $('#signup-btn').on('click', showSignUp)
-  $('#signin-btn').on('click', showSignIn)
-  $('#sign-up').on('submit', onSignUp)
-  $('#sign-in').on('submit', onSignIn)
+  $('#signup').on('submit', onSignUp)
+  $('#signin').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('.new-game').on('click', onNewGame)
