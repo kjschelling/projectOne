@@ -5,20 +5,20 @@ const store = require('./store')
 // sign up  success
 const signUpSuccess = function () {
   // console.log(data)
-  $('#message').text('Signed up successfully! Now sign in to play game!')
+  $('#signup-message').text('Signed up successfully! Please sign in to play!').hide(5000)
   $('#sign-up-email').val('')
   $('#sign-up-password').val('')
   $('#sign-up-password-confirmation').val('')
 }
 // sign up fail
 const signUpFailure = function () {
-  $('#message').text('Error on sign up')
+  $('#signup-message').text('Error on sign up').hide(5000)
 }
 
 // sign in success
 const signInSuccess = function (data) {
   store.user = data.user
-  $('#messageSignIn').text('Signed in successfully!')
+  $('#signin-message').text('Signed in successfully!').hide(5000)
   $('#change-password').show()
   $('#sign-out').show()
   $('.new-game').show()
@@ -33,7 +33,7 @@ const signInSuccess = function (data) {
 
 // sign in fail
 const signInFailure = function () {
-  $('#messageSignIn').text('Error on sign in')
+  $('#signin-message').text('Sign in error please try again!').hide(5000)
 }
 // change password success
 const changePasswordSuccess = function () {

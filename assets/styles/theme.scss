@@ -90,3 +90,8 @@ h2, h3 {
   background-color: lighten($teal, 30%);
   opacity: .75;
 }
+
+#signin-message {
+  font-weight: bold;
+  color: $gray;
+}
