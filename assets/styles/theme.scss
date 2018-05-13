@@ -34,6 +34,11 @@ footer {
   opacity: .75;
 }
 
+h2, h3 {
+  color: $white;
+  text-shadow: 2px 2px $gray;
+}
+
 .header {
   color: $white;
   font-size: 70px;
